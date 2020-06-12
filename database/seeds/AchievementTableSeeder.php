@@ -12,8 +12,8 @@ class AchievementTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('achievements')->truncate();
+        DB::statement("TRUNCATE TABLE achievements RESTART IDENTITY CASCADE");
+        // DB::table('achievements')->truncate();
 
         $a1 = new Achievement;
         $a1->name = "Pequeno Explorador";
@@ -35,6 +35,6 @@ class AchievementTableSeeder extends Seeder
         $a4->description = "Descrição de como conseguir";
         $a4->save();
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

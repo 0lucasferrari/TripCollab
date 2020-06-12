@@ -12,13 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('users')->truncate();
+        DB::statement("TRUNCATE TABLE users RESTART IDENTITY CASCADE");
 
         factory(\App\User::class, 100)->create();
-        
+
         // ->each(function($user) {
-            
+
         //     // Seed para a relação com 3 trips
         //     // Checar!!! $user->trips()->saveMany(factory(App\Trip::class, 3)->make());
 
@@ -45,15 +44,15 @@ class UsersTableSeeder extends Seeder
 
         //     //Seed para a relação com 3 topics
         //     $user->topics()->saveMany(factory(App\Topic::class, 3)->make());
-        
+
         //     //Seed para a relação com 10 topicMessages
         //     $user->topicMessages()->saveMany(factory(App\TopicMessage::class, 10)->make());
-            
+
         //     //////////
         //     //Seed para a relação com 4 activityLogs
         //     // $user->activityLogs()->saveMany(factory(App\ActivityLog::class, 4)->make);
         // });
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

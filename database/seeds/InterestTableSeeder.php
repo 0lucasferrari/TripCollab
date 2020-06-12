@@ -12,8 +12,8 @@ class InterestTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('interests')->truncate();
+        DB::statement("TRUNCATE TABLE interests RESTART IDENTITY CASCADE");
+        // DB::table('interests')->truncate();
 
         $i1 = new Interest;
         $i1->name = "Amigos";
@@ -51,6 +51,6 @@ class InterestTableSeeder extends Seeder
         $i9->name = "Viagem Econômica";
         $i9->save();
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

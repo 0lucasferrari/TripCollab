@@ -12,11 +12,10 @@ class TripTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('trips')->truncate();
+        DB::statement("TRUNCATE TABLE trips RESTART IDENTITY CASCADE");
 
         factory(\App\Trip::class, 100)->create();
-        
+
         // ->each(function($trip){
 
             // Seed para a relação com 10 users
@@ -26,6 +25,6 @@ class TripTableSeeder extends Seeder
         //     $trip->interest()->saveMany(factory(App\Interest::class, 4)->make());
         // });
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

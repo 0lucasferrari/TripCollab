@@ -12,8 +12,7 @@ class TopicTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('topics')->truncate();
+        DB::statement("TRUNCATE TABLE topics RESTART IDENTITY CASCADE");
 
         factory(\App\Topic::class, 100)->create();
         // ->each(function($topic) {
@@ -27,7 +26,7 @@ class TopicTableSeeder extends Seeder
         //     // Seed para a relação com user
         //     $topic->user()->save(factory(App\User::class)->make());
         // });
-        
-        DB::statement('SET foreign_key_checks = 1');
+
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

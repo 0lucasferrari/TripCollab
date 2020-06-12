@@ -11,11 +11,11 @@ class LikeTopicMessageTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('like_topic_messages')->truncate();
+        DB::statement("TRUNCATE TABLE like_topic_messages RESTART IDENTITY CASCADE");
+        // DB::table('like_topic_messages')->truncate();
 
         factory(\App\LikeTopicMessage::class, 100)->create();
-        
-        DB::statement('SET foreign_key_checks = 1');
+
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

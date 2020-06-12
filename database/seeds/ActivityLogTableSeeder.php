@@ -12,8 +12,8 @@ class ActivityLogTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('activity_logs')->truncate();
+        DB::statement("TRUNCATE TABLE activity_logs RESTART IDENTITY CASCADE");
+        // DB::table('activity_logs')->truncate();
 
         factory(\App\activityLog::class, 3)->create()->each(function($activityLog){
 
@@ -22,9 +22,9 @@ class ActivityLogTableSeeder extends Seeder
 
             // Seed para a relação com notification
             $activityLog->notification()->save()(factory(\App\Notification::class)->make());
-            
+
         });
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

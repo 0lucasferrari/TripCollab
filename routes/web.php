@@ -134,12 +134,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('search/', 'Search\SearchController@show')->name('search.show');
 
-    Route::get('search/users/', 'Search\SearchController@searchUsers')->name('search.users.index');
-
-    Route::get('search/groups/', 'Search\SearchController@searchGroups')->name('search.groups.index');
-
-    Route::get('search/trips/', 'Search\SearchController@searchTrips')->name('search.trips.index');
-
     // Achievements
     Route::get('/classificacao', function() {
         return view('Achievements/show');

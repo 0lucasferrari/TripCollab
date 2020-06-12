@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 
 class Trip extends Model
 {
-    use Searchable;
+    // use Searchable;
 
     protected $fillable = ['name','group_id','description','photo','departure','return_date','admin','visibility','foreseen_budget'];
 

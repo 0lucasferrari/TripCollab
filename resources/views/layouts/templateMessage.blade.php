@@ -17,7 +17,7 @@
             crossorigin="anonymous"></script>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
          <!-- Material icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Fontaweasome -->
@@ -41,7 +41,7 @@
             @auth
             <div class="itensMenu d-none d-md-inline-block">
             <a href="{{route('trip.timeline')}}" class="{{ isset($pagina) && $pagina == 'linhaDoTempo' ? 'ativo' : '' }} mr-5">SCRAPBOOK</a>
-            <a href="{{route('search.users.index')}}" class="{{ isset($pagina) && $pagina == 'busca' ? 'ativo' : '' }} mr-5">BUSCA</a>
+            <a href="{{route('search.show')}}" class="{{ isset($pagina) && $pagina == 'busca' ? 'ativo' : '' }} mr-5">BUSCA</a>
             <a href="{{route('home')}}" class="{{ isset($pagina) && $pagina == 'perfil' ? 'ativo' : '' }} mr-5">PERFIL</a>
             <a href="{{route('user.listGroupsAndTrips')}}" class="{{ isset($pagina) && $pagina == 'comunidadesEviagens' ? 'ativo' : '' }} mr-5">COMUNIDADE</a>
             </div>

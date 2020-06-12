@@ -12,12 +12,12 @@ class GroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::table('groups')->truncate();
+        DB::statement("TRUNCATE TABLE groups RESTART IDENTITY CASCADE");
+        // DB::table('groups')->truncate();
 
         factory(\App\Group::class, 100)->create();
         // ->each(function($group) {
-            
+
         //     // Seed para a relação com user
         //     $group->user()->save()(factory(\App\User::class)->make());
 
@@ -31,6 +31,6 @@ class GroupTableSeeder extends Seeder
         //     $group->topic()->saveMany()(factory(\App\Topic::class, 3)->make());
         // });
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

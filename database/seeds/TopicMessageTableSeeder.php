@@ -12,7 +12,7 @@ class TopicMessageTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET foreign_key_checks = 0');
+        DB::statement("TRUNCATE TABLE topic_messages RESTART IDENTITY CASCADE");
         DB::table('topic_messages')->truncate();
 
         factory(\App\TopicMessage::class, 100)->create();
@@ -26,6 +26,6 @@ class TopicMessageTableSeeder extends Seeder
 
         // });
 
-        DB::statement('SET foreign_key_checks = 1');
+        // DB::statement('SET foreign_key_checks = 1');
     }
 }

@@ -23,7 +23,7 @@ class CreateTripsTable extends Migration
             $table->unsignedBigInteger('admin');
             $table->unsignedBigInteger('group_id')->nullable()->onDelete('cascade'); // Adicionado posteriormente
             $table->boolean('visibility'); // Adicionado posteriormente
-            $table->bigInteger('foreseen_budget'); // Adicionado posteriormente
+            $table->float('foreseen_budget'); // Adicionado posteriormente
 
             $table->foreign('admin')
             ->references('id')
